@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ProdukKatModel extends CI_Model {
+class UserModel extends CI_Model {
 	function save($value){
 		$this->db->trans_begin();
 		
-		$this->db->insert('produkkat', $value);
+		$this->db->insert('users', $value);
 		
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -19,9 +19,9 @@ class ProdukKatModel extends CI_Model {
 	function edit($clause, $value){
 		$this->db->trans_begin();
 		
-		$this->db->where('produkkat', $clause);
+		$this->db->where('users', $clause);
 		
-		$this->db->update('produkkat', $value);
+		$this->db->update('users', $value);
 		
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -33,20 +33,20 @@ class ProdukKatModel extends CI_Model {
 	}
 
 	function delete($clause){
-		$this->db->where('produkkat',$clause);
-		$delete = $this->db->delete('produkkat');
+		$this->db->where('users',$clause);
+		$delete = $this->db->delete('users');
 		return null;
 	}
 
 	function getAll(){
-		$dep = $this->db->get('produkkat');
+		$dep = $this->db->get('users');
 		return $dep;
 	}
 
 	function getByClause($clause){
 		$this->db->select('*');
 		$this->db->where($clause);
-		$dep = $this->db->get('produkkat');
+		$dep = $this->db->get('users');
 		return $dep;
 	}
 }

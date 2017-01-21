@@ -5,7 +5,7 @@ class DepartementModel extends CI_Model {
 	function save($value){
 		$this->db->trans_begin();
 		
-		$this->db->insert('departement', $value);
+		$this->db->insert('departements', $value);
 		
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -19,9 +19,9 @@ class DepartementModel extends CI_Model {
 	function edit($clause, $value){
 		$this->db->trans_begin();
 		
-		$this->db->where('departement', $clause);
+		$this->db->where('departements', $clause);
 		
-		$this->db->update('departement', $value);
+		$this->db->update('departements', $value);
 		
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -33,20 +33,20 @@ class DepartementModel extends CI_Model {
 	}
 
 	function delete($clause){
-		$this->db->where('departement',$clause);
-		$delete = $this->db->delete('departement');
+		$this->db->where('departements',$clause);
+		$delete = $this->db->delete('departements');
 		return null;
 	}
 
 	function getAll(){
-		$dep = $this->db->get('departement');
+		$dep = $this->db->get('departements');
 		return $dep;
 	}
 
 	function getByClause($clause){
 		$this->db->select('*');
 		$this->db->where($clause);
-		$dep = $this->db->get('departement');
+		$dep = $this->db->get('departements');
 		return $dep;
 	}
 }

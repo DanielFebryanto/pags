@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SupplierTypeModel extends CI_Model {
+class CategoryModel extends CI_Model {
 	function save($value){
 		$this->db->trans_begin();
 		
-		$this->db->insert('suppliertype', $value);
+		$this->db->insert('categories', $value);
 		
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -19,9 +19,9 @@ class SupplierTypeModel extends CI_Model {
 	function edit($clause, $value){
 		$this->db->trans_begin();
 		
-		$this->db->where('suppliertype', $clause);
+		$this->db->where('categories', $clause);
 		
-		$this->db->update('suppliertype', $value);
+		$this->db->update('categories', $value);
 		
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -33,20 +33,20 @@ class SupplierTypeModel extends CI_Model {
 	}
 
 	function delete($clause){
-		$this->db->where('suppliertype',$clause);
-		$delete = $this->db->delete('suppliertype');
+		$this->db->where('categories',$clause);
+		$delete = $this->db->delete('categories');
 		return null;
 	}
 
 	function getAll(){
-		$dep = $this->db->get('suppliertype');
+		$dep = $this->db->get('categories');
 		return $dep;
 	}
 
 	function getByClause($clause){
-		$this->db->geselectt('*');
+		$this->db->select('*');
 		$this->db->where($clause);
-		$dep = $this->db->get('suppliertype');
+		$dep = $this->db->get('categories');
 		return $dep;
 	}
 }

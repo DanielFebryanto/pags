@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PosisiModel extends CI_Model {
+class VideoModel extends CI_Model {
 	function save($value){
 		$this->db->trans_begin();
 		
-		$this->db->insert('posisi', $value);
+		$this->db->insert('videos', $value);
 		
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -19,9 +19,9 @@ class PosisiModel extends CI_Model {
 	function edit($clause, $value){
 		$this->db->trans_begin();
 		
-		$this->db->where('posisi', $clause);
+		$this->db->where('videos', $clause);
 		
-		$this->db->update('posisi', $value);
+		$this->db->update('videos', $value);
 		
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -33,20 +33,20 @@ class PosisiModel extends CI_Model {
 	}
 
 	function delete($clause){
-		$this->db->where('posisi',$clause);
-		$delete = $this->db->delete('posisi');
+		$this->db->where('videos',$clause);
+		$delete = $this->db->delete('videos');
 		return null;
 	}
 
 	function getAll(){
-		$dep = $this->db->get('posisi');
+		$dep = $this->db->get('videos');
 		return $dep;
 	}
 
 	function getByClause($clause){
 		$this->db->select('*');
 		$this->db->where($clause);
-		$dep = $this->db->get('posisi');
+		$dep = $this->db->get('videos');
 		return $dep;
 	}
 }
