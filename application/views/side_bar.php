@@ -78,7 +78,7 @@
                             </ul>
                         </div>
                         <div class="menu_section">
-                            <h3>Payment</h3>
+                            <h3>User Access Management</h3>
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-bug"></i> Kelola Pembayaran <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">

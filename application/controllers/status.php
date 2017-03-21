@@ -7,7 +7,11 @@ class Status extends CI_Controller {
  		$this->load->library(array('template'));
 	}
     function index(){
-
+        $this->load->model('statusModel');
+        $data['status'] = $this->statusModel->getAll();
+        $data['title'] = 'Status Table';
+		$this->template->display('home',$data);
+	
     }
 
     function get(){
@@ -15,7 +19,8 @@ class Status extends CI_Controller {
     }
     
     function create(){
-
+        $data['title'] = 'Status Form';
+		$this->template->display('form/formStatus',$data);
     }
 
     function update(){
